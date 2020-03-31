@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col">
+    <button class="btn btn-success">New Event</button>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <a class="list-group" href="#" *ngFor="let event of events">
+      <div class="pull-left">
+        <h4 class="list-group-item-heading">{{event.name}}</h4>
+        <p class="list-group-item-text">{{event.description}}</p>
+      </div>
+      <span class="pull-right">
+        <img [src]="event.image" alt="{{event.name}}" class="img-fluid" />
+      </span>
+    </a>
+  </div>
+</div>
+<div class="row">
+  <app-event-item></app-event-item>
+</div>
