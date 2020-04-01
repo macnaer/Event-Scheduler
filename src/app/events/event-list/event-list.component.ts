@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Event } from '../event.model';
+import { TouchSequence } from 'selenium-webdriver';
 
 @Component({
   selector: 'app-event-list',
@@ -7,6 +8,8 @@ import { Event } from '../event.model';
   styleUrls: ['./event-list.component.scss']
 })
 export class EventListComponent implements OnInit {
+  @Output() eventSelected = new EventEmitter<Event>();
+
   events: Event[] = [
     new Event(
       'Java Script Patterns',
@@ -22,4 +25,7 @@ export class EventListComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+  onEventSelected(event: Event) {
+    this.eventSelected.emit(event);
+  }
 }
