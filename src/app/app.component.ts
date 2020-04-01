@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'event-scheduler';
+  menuLoaded = 'events';
+
+  Navigate(Selected: string) {
+    this.menuLoaded = Selected;
+  }
 }

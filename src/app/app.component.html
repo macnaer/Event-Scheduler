@@ -1,9 +1,9 @@
-<app-header></app-header>
+<app-header (Selected)="Navigate($event)"></app-header>
 <div class="container">
   <div class="row">
     <div class="col">
-      <app-events></app-events>
-      <app-requirements-list></app-requirements-list>
+      <app-events *ngIf="menuLoaded === 'events'"></app-events>
+      <app-requirements-list *ngIf="menuLoaded !== 'events'"></app-requirements-list>
     </div>
   </div>
 </div>

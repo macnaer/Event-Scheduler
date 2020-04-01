@@ -1,1 +1,9 @@
-<p>event-item works!</p>
+<a class="list-group" href="#">
+  <div class="pull-left">
+    <h4 class="list-group-item-heading">{{event.name}}</h4>
+    <p class="list-group-item-text">{{event.description}}</p>
+  </div>
+  <span class="pull-right">
+    <img [src]="event.image" alt="{{event.name}}" class="img-fluid" />
+  </span>
+</a>

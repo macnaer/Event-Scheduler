@@ -1,1 +1,14 @@
-<p>requirements-list works!</p>
+<div class="row">
+  <div class="col">
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let item of requirements">
+        {{item.name}} | {{item.description}}
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <app-requirements-edit></app-requirements-edit>
+  </div>
+</div>
