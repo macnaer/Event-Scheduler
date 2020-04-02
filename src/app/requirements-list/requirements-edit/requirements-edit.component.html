@@ -1,18 +1,21 @@
 <div class="row">
   <div class="col">
-    <label for="name">Name</label>
-    <input type="text" id="name" class="form-control" />
-  </div>
-  <div class="col">
-    <label for="desc">Description</label>
-    <input type="text" id="desc" class="form-control" />
-  </div>
-</div>
-<div class="row">
-  <div class="col">
-    <div>
-      <button class="btn btn-success">Add</button>
-      <button class="btn btn-danger">Delete</button>
-    </div>
+    <form>
+      <div class="row">
+        <div class="col-sm-5 form-group">
+          <label for="skills">Skills</label>
+          <input type="text" id="skills" class="form-control" #skillsInput />
+        </div>
+        <div class="col-sm-7 form-group">
+          <label id="desc">Description</label>
+          <input type="text" id="desc" class="from-control" #descInput />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <button class="btn btn-success" type="button" (click)="onAddItem()">Add</button>
+        </div>
+      </div>
+    </form>
   </div>
 </div>

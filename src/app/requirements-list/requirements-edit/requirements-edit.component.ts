@@ -1,4 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  ElementRef,
+  Output,
+  EventEmitter
+} from '@angular/core';
+import { Requirement } from '../requirements.model';
 
 @Component({
   selector: 'app-requirements-edit',
@@ -6,10 +14,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./requirements-edit.component.scss']
 })
 export class RequirementsEditComponent implements OnInit {
+  @ViewChild('skillsInput', { static: false }) skillsInputRef: ElementRef;
+  @ViewChild('descInput', { static: false }) descInputRef: ElementRef;
+  @Output() newRequirementAdded = new EventEmitter<Requirement>();
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
+  ngOnInit(): void {}
+  onAddItem() {
+    const skills = this.skillsInputRef.nativeElement.value;
+    const description = this.descInputRef.nativeElement.value;
+    const newRequirement = new Requirement(skills, description);
+    this.newRequirementAdded.emit(newRequirement);
   }
-
 }

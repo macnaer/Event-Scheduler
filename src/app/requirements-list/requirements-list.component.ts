@@ -14,4 +14,8 @@ export class RequirementsListComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  onRequirementAdded(requirement: Requirement) {
+    this.requirements.push(requirement);
+  }
 }
