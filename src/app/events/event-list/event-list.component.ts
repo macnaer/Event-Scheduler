@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Event } from '../event.model';
-import { TouchSequence } from 'selenium-webdriver';
+import { EventService } from '../event.service';
 
 @Component({
   selector: 'app-event-list',
@@ -10,21 +10,12 @@ import { TouchSequence } from 'selenium-webdriver';
 export class EventListComponent implements OnInit {
   @Output() eventSelected = new EventEmitter<Event>();
 
-  events: Event[] = [
-    new Event(
-      'Java Script Patterns',
-      'For advanced skills students',
-      'https://monsterlessons.com/api/storage/uploads/posters/9e7ad2a5-9047-4139-b25b-2ede6cec1fc8/poster.png'
-    ),
-    new Event(
-      'Java for true coders',
-      'Java is the best programming ...',
-      'https://upload.wikimedia.org/wikipedia/uk/8/85/%D0%9B%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF_Java.png'
-    )
-  ];
-  constructor() {}
+  events: Event[];
+  constructor(private eventService: EventService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.events = this.eventService.getEvents();
+  }
   onEventSelected(event: Event) {
     this.eventSelected.emit(event);
   }
