@@ -5,29 +5,22 @@
 </div>
 <div class="row">
   <div class="col">
-    <button class="btn btn-success dropdown-toggle">
-      Edit
-    </button>
-    <ul class="dropdown-menu">
-      <li>
-        <a href="#">Title</a>
-      </li>
-      <li>
-        <a href="#">Description</a>
-      </li>
-      <li>
-        <a href="#">Delete</a>
-      </li>
-    </ul>
+    <button class="btn btn-success" (click)="onAddReuirements()">Add requirements</button>
+    <button class="btn btn-warning">Delete</button>
   </div>
 </div>
 <div class="row">
   <div class="col">
+    {{ event.name }} -
     {{ event.description }}
   </div>
 </div>
 <div class="row">
   <div class="col">
-    Skiills
+    <ul class="list-group">
+      <li *ngFor="let requirement of event.requirements">
+        {{ requirement.name }} - {{ requirement.description }}
+      </li>
+    </ul>
   </div>
 </div>

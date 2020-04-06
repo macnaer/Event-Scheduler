@@ -15,4 +15,9 @@ export class RequirementService {
     this.requirements.push(requirements);
     this.eventUpdate.emit(this.requirements.slice());
   }
+
+  AddRequirements(requirements: Requirement[]) {
+    this.requirements.push(...requirements);
+    this.eventUpdate.emit(this.requirements.slice());
+  }
 }
