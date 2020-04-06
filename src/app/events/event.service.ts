@@ -1,8 +1,9 @@
 import { Event } from './event.model';
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 
 @Injectable()
 export class EventService {
+  eventSelected = new EventEmitter<Event>();
   private events: Event[] = [
     new Event(
       'Java Script Patterns',
@@ -13,7 +14,7 @@ export class EventService {
       'Java for true coders',
       'Java is the best programming ...',
       'https://upload.wikimedia.org/wikipedia/uk/8/85/%D0%9B%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF_Java.png'
-    )
+    ),
   ];
   getEvents() {
     return this.events.slice();

@@ -1,21 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { Requirement } from './requirements.model';
+import { RequirementService } from './requirements.service';
 
 @Component({
   selector: 'app-requirements-list',
   templateUrl: './requirements-list.component.html',
-  styleUrls: ['./requirements-list.component.scss']
+  styleUrls: ['./requirements-list.component.scss'],
 })
 export class RequirementsListComponent implements OnInit {
-  requirements: Requirement[] = [
-    new Requirement('Java Script', 'Base knowlage of OOP'),
-    new Requirement('HTML, JS, CSS,', 'REST API')
-  ];
-  constructor() {}
+  requirements: Requirement[];
+  constructor(private requirementService: RequirementService) {}
 
-  ngOnInit(): void {}
-
-  onRequirementAdded(requirement: Requirement) {
-    this.requirements.push(requirement);
+  ngOnInit(): void {
+    this.requirements = this.requirementService.getRequirements();
+    this.requirementService.eventUpdate.subscribe(
+      (requirements: Requirement[]) => {
+        this.requirements = requirements;
+      }
+    );
   }
 }
