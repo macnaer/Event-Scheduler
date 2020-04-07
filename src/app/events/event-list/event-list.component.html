@@ -5,6 +5,6 @@
 </div>
 <div class="row">
   <div class="col">
-    <app-event-item *ngFor="let item of events" [event]='item'></app-event-item>
+    <app-event-item *ngFor="let item of events; let i = index" [event]='item' [index]="i"></app-event-item>
   </div>
 </div>

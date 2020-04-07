@@ -25,6 +25,9 @@ export class EventService {
   getEvents() {
     return this.events.slice();
   }
+  getSingleEvent(index: number) {
+    return this.events[index];
+  }
   AddEvent(requiremens: Requirement[]) {
     this.requirementService.AddRequirements(requiremens);
   }

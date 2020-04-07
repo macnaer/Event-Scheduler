@@ -13,6 +13,7 @@ import { RequirementsEditComponent } from './requirements-list/requirements-edit
 
 import { EventService } from './events/event.service';
 import { RequirementService } from './requirements-list/requirements.service';
+import { EventStartComponent } from './events/event-start/event-start.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { RequirementService } from './requirements-list/requirements.service';
     EventDetailComponent,
     RequirementsListComponent,
     RequirementsEditComponent,
+    EventStartComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [EventService, RequirementService],

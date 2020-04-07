@@ -1,4 +1,4 @@
-<a class="list-group" href="#" (click)="onSelected()">
+<a class="list-group" [routerLink]="[index]" routerLinkActive="active">
   <div class="pull-left">
     <h4 class="list-group-item-heading">{{event.name}}</h4>
     <p class="list-group-item-text">{{event.description}}</p>
