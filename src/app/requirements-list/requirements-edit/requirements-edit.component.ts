@@ -15,19 +15,28 @@ export class RequirementsEditComponent implements OnInit, OnDestroy {
   constructor(private requirementService: RequirementService) {}
   subscription: Subscription;
   editMode = false;
+  editedItem: number;
   editedRequirement: Requirement;
 
   onAddItem(form: NgForm) {
     const skills = form.value.skills;
     const description = form.value.description;
     const newRequirement = new Requirement(skills, description);
-    this.requirementService.onAddRequirements(newRequirement);
+    if (this.editMode) {
+      this.requirementService.updateRequirements(
+        this.editedItem,
+        newRequirement
+      );
+    } else {
+      this.requirementService.onAddRequirements(newRequirement);
+    }
   }
 
   ngOnInit(): void {
     this.subscription = this.requirementService.startEdit.subscribe(
       (index: number) => {
         this.editMode = true;
+        this.editedItem = index;
         this.editedRequirement = this.requirementService.getSingleRequirement(
           index
         );

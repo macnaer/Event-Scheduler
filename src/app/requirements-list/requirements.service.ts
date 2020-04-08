@@ -25,4 +25,9 @@ export class RequirementService {
   getSingleRequirement(index: number) {
     return this.requirements[index];
   }
+
+  updateRequirements(index: number, newReq: Requirement) {
+    this.requirements[index] = newReq;
+    this.eventUpdate.next(this.requirements.slice());
+  }
 }
