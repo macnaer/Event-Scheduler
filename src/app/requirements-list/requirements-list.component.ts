@@ -19,4 +19,7 @@ export class RequirementsListComponent implements OnInit {
       }
     );
   }
+  onEdit(index: number) {
+    this.requirementService.startEdit.next(index);
+  }
 }
