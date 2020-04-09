@@ -30,4 +30,9 @@ export class RequirementService {
     this.requirements[index] = newReq;
     this.eventUpdate.next(this.requirements.slice());
   }
+
+  deleteRequirement(index: number) {
+    this.requirements.splice(index, 1);
+    this.eventUpdate.next(this.requirements.slice());
+  }
 }

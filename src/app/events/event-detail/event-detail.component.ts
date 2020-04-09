@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Event } from '../event.model';
 import { EventService } from '../event.service';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 0;
 @Component({
   selector: 'app-event-detail',
@@ -13,7 +13,8 @@ export class EventDetailComponent implements OnInit {
   index: number;
   constructor(
     private eventService: EventService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -24,5 +25,8 @@ export class EventDetailComponent implements OnInit {
   }
   onAddReuirements() {
     this.eventService.AddEvent(this.event.requirements);
+  }
+  onEditEvent() {
+    this.router.navigate(['edit'], { relativeTo: this.route });
   }
 }

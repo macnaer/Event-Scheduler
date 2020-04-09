@@ -30,6 +30,16 @@ export class RequirementsEditComponent implements OnInit, OnDestroy {
     } else {
       this.requirementService.onAddRequirements(newRequirement);
     }
+    form.reset();
+    this.editMode = false;
+  }
+  onClear() {
+    this.reqForm.reset();
+    this.editMode = false;
+  }
+  onDelete() {
+    this.requirementService.deleteRequirement(this.editedItem);
+    this.onClear();
   }
 
   ngOnInit(): void {
