@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +15,7 @@ import { RequirementsEditComponent } from './requirements-list/requirements-edit
 
 import { EventService } from './events/event.service';
 import { RequirementService } from './requirements-list/requirements.service';
+import { StorageService } from './services/storage.service';
 import { EventStartComponent } from './events/event-start/event-start.component';
 import { EventEditComponent } from './events/event-edit/event-edit.component';
 
@@ -30,8 +32,8 @@ import { EventEditComponent } from './events/event-edit/event-edit.component';
     EventStartComponent,
     EventEditComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
-  providers: [EventService, RequirementService],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  providers: [EventService, RequirementService, StorageService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
